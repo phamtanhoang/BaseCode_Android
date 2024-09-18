@@ -18,7 +18,6 @@ open class BaseRemoteService {
 
             withTimeoutOrNull(20000L) {
                 val response = call()
-                Log.d(JsonPlaceHolderTAG, "JsonPlaceHolderTAG: $response")
                 try {
                     if (response.isSuccessful) {
                         response.body()?.let { data ->

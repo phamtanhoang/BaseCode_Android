@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.pth.androidapp.base.network.NetworkResult
 import com.pth.androidapp.base.viewmodels.BaseViewModel
-import com.pth.androidapp.data.modelJsons.PostJson
+import com.pth.androidapp.data.models.Post
 import com.pth.androidapp.data.repositories.JsonPlaceHolderRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
@@ -17,12 +17,12 @@ class JsonPlaceHolderViewModel @Inject constructor(
     private val jsonPlaceHolderRepository: JsonPlaceHolderRepository
 ): BaseViewModel() {
 
-    private val _posts = MutableLiveData<NetworkResult<List<PostJson>>>()
-    val posts: LiveData<NetworkResult<List<PostJson>>> = _posts
+    private val _posts = MutableLiveData<NetworkResult<List<Post>>>()
+    val posts: LiveData<NetworkResult<List<Post>>> = _posts
 
-//    init {
-//        fetchPageData()
-//    }
+    init {
+        fetchPageData()
+    }
 
     override fun fetchPageData() {
         fetchAllPosts()
@@ -33,7 +33,10 @@ class JsonPlaceHolderViewModel @Inject constructor(
             _posts.value = NetworkResult.Loading
             jsonPlaceHolderRepository.getAllPost()
                 .catch { e ->
-//                    _posts.value = e
+                    _posts.value = NetworkResult.Error(
+                        code = 400,
+                        message = e.message ?: "Something went wrong!"
+                    )
                 }
                 .collect { result ->
                     _posts.value = result

@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.pth.androidapp.base.activities.BaseActivity
 import com.pth.androidapp.databinding.ActivitySplashBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SplashActivity : BaseActivity() {
 
     companion object {
