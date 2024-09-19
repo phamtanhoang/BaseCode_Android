@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.pth.androidapp.data.models.Post
+import com.pth.androidapp.data.models.post.Post
 import com.pth.androidapp.databinding.ViewholderJsonPlaceHolderBinding
 
 class JsonPlaceHolderAdapter(

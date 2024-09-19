@@ -1,8 +1,6 @@
-package com.pth.androidapp.data.modelJsons
+package com.pth.androidapp.data.models.post
 
-import com.pth.androidapp.data.models.Post
-
-class PostJson(
+class PostResponse(
     val userId: Int?,
     val id: Int?,
     val title: String?,

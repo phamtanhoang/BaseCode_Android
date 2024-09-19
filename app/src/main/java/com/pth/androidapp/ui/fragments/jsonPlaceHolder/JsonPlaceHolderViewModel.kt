@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.pth.androidapp.base.network.NetworkResult
 import com.pth.androidapp.base.viewmodels.BaseViewModel
-import com.pth.androidapp.data.models.Post
+import com.pth.androidapp.data.models.post.Post
 import com.pth.androidapp.data.repositories.JsonPlaceHolderRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
